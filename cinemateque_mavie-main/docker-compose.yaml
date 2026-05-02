@@ -1,0 +1,55 @@
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    networks:
+      - backend_net
+
+  backend:
+    build: ./backend
+    container_name: mavie_backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: ${POSTGRES_USER}
+      DB_NAME: ${POSTGRES_DB}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    networks:
+      - backend_net
+      - frontend_net
+
+  frontend:
+    build: ./frontend
+    container_name: mavie_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3000:80" 
+    networks:
+      - frontend_net
+
+volumes:
+  postgres_data:
+
+networks:
+  backend_net:
+    driver: bridge
+
+  frontend_net:
+    driver: bridge

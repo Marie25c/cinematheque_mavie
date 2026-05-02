@@ -1,0 +1,176 @@
+/* --- Filtres : Menu Latéral (Drawer) Façon "Login" --- */
+
+/* Bouton qui ouvre les filtres */
+.filter-trigger-btn {
+  background-color: white;
+  color: #574d68;
+  border: 2px solid #f2f7ff;
+  padding: 12px 25px;
+  border-radius: 30px; /* Forme de pilule */
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.filter-trigger-btn:hover {
+  border-color: #c8b6ff;
+  color: #9b59b6;
+  transform: translateY(-2px);
+}
+
+/* L'overlay sombre en arrière-plan */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px); /* Flou élégant en fond */
+  z-index: 99998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Le panneau latéral (La Carte) */
+.filter-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 380px; /* Un peu plus large pour que ça respire */
+  max-width: 100vw;
+  height: 100%;
+  background: white;
+  
+  /* L'ombre violette identique au container Login */
+  box-shadow: -10px 0 30px rgba(200, 182, 255, 0.4); 
+  border-left: 2px solid #f2f7ff;
+  
+  /* Bords ronds à gauche pour l'effet "carte" */
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-panel.open {
+  transform: translateX(0);
+}
+
+/* L'en-tête */
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px 10px 30px;
+}
+
+.filter-header h2 {
+  color: #574d68;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #c8b6ff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #ff7675;
+  transform: scale(1.2) rotate(90deg);
+}
+
+/* Le corps du panneau avec les champs */
+.filter-body {
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.filter-group label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #574d68;
+  margin-left: 10px; /* S'aligne avec le bord arrondi du champ */
+}
+
+/* Les champs (Exactement comme dans Login) */
+.filter-input {
+  padding: 14px 20px;
+  width: 100%;
+  border: 2px solid #f2f7ff;
+  background-color: #fcfdff;
+  border-radius: 30px; /* La fameuse forme arrondie */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  font-size: 1rem;
+  color: #574d68;
+  outline: none;
+  transition: 0.3s ease;
+  font-family: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.filter-input:focus {
+  transform: translateY(-2px);
+  border-color: #c8b6ff;
+  background-color: white;
+  box-shadow: 0 10px 25px rgba(200, 182, 255, 0.2);
+}
+
+/* Le bas du panneau */
+.filter-footer {
+  padding: 20px 30px 30px 30px;
+}
+
+/* Le bouton d'action (Exactement comme dans Login) */
+.filter-apply-btn {
+  width: 100%;
+  padding: 14px 30px;
+  background-color: #c8b6ff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 182, 255, 0.4);
+}
+
+.filter-apply-btn:hover {
+  background-color: #be99ff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(200, 182, 255, 0.6);
+}

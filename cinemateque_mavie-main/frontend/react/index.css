@@ -1,0 +1,57 @@
+/* index.css */
+:root {
+  --primary: #9D71E8;
+  --primary-hover: #8659d3;
+  --bg-color: #f0f4f8;
+  --card-bg: #ffffff;
+  --text-main: #2d3436;
+  --text-muted: #636e72;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+/* index.css */
+body {
+  margin: 0;
+  background-color: #C9DCFF; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page {
+  position: relative;
+  z-index: 2;
+}
+
+.movie-card {
+  z-index: 2;
+}
+
+.marcellus-regular {
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.comfortaa-police {
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+.playfair-police {
+  font-family: "Playfair", serif;
+  font-optical-sizing: auto;
+  font-weight: 300px;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}

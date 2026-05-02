@@ -1,0 +1,101 @@
+/* --- Header de recherche --- */
+.search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 50px;
+  margin-top: -35px;
+  box-sizing: border-box; 
+}
+
+.clouds-left-group {
+  display: flex;
+  align-items: center;
+  gap: -40px;
+  flex-shrink: 1; 
+}
+
+.search-bar-container {
+  flex-shrink: 0; 
+  margin-left: 20px;
+}
+
+
+/* --- Base des Nuages (Tes paramètres originaux conservés) --- */
+.cloud-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  aspect-ratio: 1.8;
+  --g: radial-gradient(50% 50%, #000 98%, #0000) no-repeat;
+  -webkit-mask: var(--g) 100% 100%/30% 60%, var(--g) 70% 0/50% 100%, var(--g) 0 100%/36% 68%, var(--g) 27% 18%/26% 40%, linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
+  mask: var(--g) 100% 100%/30% 60%, var(--g) 70% 0/50% 100%, var(--g) 0 100%/36% 68%, var(--g) 27% 18%/26% 40%, linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
+  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.1));
+  position: relative; 
+  transition: all 0.3s ease;
+}
+
+/* --- Couleurs et Tailles (Inchangées) --- */
+.cloud-r {
+  height: 80px;
+  background: #C8B6FF;
+  animation: float 8s ease-in-out infinite;
+}
+
+.cloud-q {
+  height: 180px;
+  background: #B8C0FF;
+  animation: float 6s ease-in-out infinite;
+}
+
+.cloud-s {
+  height: 60px;
+  background: #E7C6FF;
+  animation: float 7s ease-in-out infinite;
+}
+
+/* --- Textes dans les nuages --- */
+.cloud-q p, .cloud-r p, .cloud-s p {
+  color: white;
+  margin: 0;
+  padding: 0 10px;
+  font-family: serif;
+  text-align: center;
+}
+
+/* On définit l'ordre de superposition */
+.cloud-r { 
+  z-index: 1; 
+  margin-right: -20px; 
+}
+
+.cloud-q { 
+  z-index: 2; 
+  transform: scale(1.1); 
+}
+
+.cloud-s { 
+  z-index: 1; 
+  margin-left: -25px; 
+}
+
+.cloud-q p { font-size: 22px; }
+.cloud-r p { font-size: 14px; }
+.cloud-s p { font-size: 12px; color: #574d68; }
+
+/* --- Animation de flottaison --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .search-header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+  }
+}
